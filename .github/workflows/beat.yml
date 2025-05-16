@@ -42,7 +42,7 @@ jobs:
           log "本地版本: ${LOCAL_VERSION:-无}"
 
           log "获取最新 Release 信息..."
-          RESPONSE=$(curl -s --retry 3 -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github.v3+json" "$REPO_URL")
+          RESPONSE=$(curl -s --retry 3 -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github.v3+json" "$REPO_URL/latest")
           if [ $? -ne 0 ]; then
             log "ERROR: 无法访问 GitHub API"
             exit 1
