@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 3 * * *" # 每天凌晨3点运行
+    - cron: "0 3 * * *"
   workflow_dispatch:
     inputs:
       force_update:
@@ -29,19 +29,18 @@ jobs:
           echo "TARGET_FILE=worker.zip" >> $GITHUB_ENV
 
       - name: 检查并更新 Worker
+        id: check_update
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 使用 GitHub Token 认证
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORCE_UPDATE: ${{ github.event.inputs.force_update || 'false' }}
         run: |
-          # 日志函数
           log() { echo "[$(date +'%Y-%m-%d %H:%M:%S')] $1"; }
 
           log "开始检查更新..."
 
-          # 获取本地版本
           LOCAL_VERSION=$(cat version.txt 2>/dev/null || echo "")
           log "本地版本: ${LOCAL_VERSION:-无}"
 
-          # 获取最新 Release
           log "获取最新 Release 信息..."
           RESPONSE=$(curl -s --retry 3 -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github.v3+json" "$REPO_URL")
           if [ $? -ne 0 ]; then
@@ -58,14 +57,11 @@ jobs:
           fi
           log "最新版本: $TAG_NAME"
 
-          # 判断是否需要更新
-          FORCE_UPDATE=${{ github.event.inputs.force_update || 'false' }}
-          if [ "$LOCAL_VERSION" = "$TAG_NAME" ] && [ "$FORCE_UPDATE" != "true" ]; then
+          if [ -n "$LOCAL_VERSION" ] && [ "$LOCAL_VERSION" = "$TAG_NAME" ] && [ "$FORCE_UPDATE" != "true" ]; then
             log "已是最新版本，无需更新"
             exit 0
           fi
 
-          # 下载并更新
           log "下载 $TARGET_FILE..."
           wget -q -O "$TARGET_FILE" "$DOWNLOAD_URL"
           log "解压 $TARGET_FILE..."
@@ -74,9 +70,12 @@ jobs:
           echo "$TAG_NAME" > version.txt
           log "更新完成，新版本: $TAG_NAME"
 
+          # 设置输出变量
+          echo "tag_name=$TAG_NAME" >> $GITHUB_ENV
+
       - name: 提交更改
-        if: success() # 仅在更新成功时提交
+        if: success()
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🔄 自动同步 Worker 版本: ${{ steps.check_update.outputs.tag_name || '未知' }}"
+          commit_message: "🔄 自动同步 Worker 版本: ${{ env.TAG_NAME || '未知' }}"
           commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
