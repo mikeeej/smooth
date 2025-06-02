@@ -138,8 +138,8 @@ async function handleVLESSWebSocket(request) {
           return num.toString(16).padStart(2, '0');
         });
         
-        // 构造NAT64 IPv6地址：2a01:4f9:c010:3f02::xxxx:xxxx
-        return `[2a01:4f9:c010:3f02::${hex[0]}${hex[1]}:${hex[2]}${hex[3]}]`;
+        // 构造NAT64 IPv6地址：2001:67c:2960:6464::xxxx:xxxx
+        return `[2001:67c:2960:6464::${hex[0]}${hex[1]}:${hex[2]}${hex[3]}]`;
       }
 
       // 获取域名的IPv4地址并转换为NAT64 IPv6地址
