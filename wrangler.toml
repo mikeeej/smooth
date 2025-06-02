@@ -1,0 +1,4 @@
+name = "smooth"
+main = "_worker.js"
+compatibility_date = "2025-06-02"
+workers_dev = true
