@@ -25,30 +25,18 @@ export default {
         // 处理 UUID 路径请求，返回配置信息
         if (url.pathname === `/${userID}`) {
           const host = request.headers.get('Host');
-          const vlessConfig = `vless://${userID}@${host}:443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=/#${host}
+          const vlessConfig = `vless://${userID}@162.159.152.115:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#东京
+vless://${userID}@162.159.130.85:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#东京
+vless://${userID}@172.67.69.45:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#西雅图
+vless://${userID}@104.22.58.100:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#西雅图
+vless://${userID}@104.25.41.10:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#洛杉矶
+vless://${userID}@198.41.208.132:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#圣何塞
+vless://${userID}@172.67.3.164:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#法兰克福
 vless://${userID}@usa.visa.com:443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#usa.visa.com
-vless://${userID}@vless.cloudflare.182682.xyz:443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#vless.cloudflare.182682.xyz
+vless://${userID}@lin.cloudflare.182682.xyz:443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#cloudflare.182682.xyz
+vless://${userID}@bestcf.030101.xyz:443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#bestcf.030101.xyz
 vless://${userID}@xn--b6gac.eu.org:443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#xn--b6gac.eu.org
 vless://${userID}@freeyx.cloudflare88.eu.org:443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#freeyx.cloudflare88.eu.org
-vless://${userID}@cf.090227.xyz:443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#cf.090227.xyz
-vless://${userID}@104.21.20.170:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#西雅图1
-vless://${userID}@[2606:4700:3032:5b27:ce4b:4cc:c06e:3175]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#西雅图2
-vless://${userID}@[2606:4700:2f:f708:4039:37a3:ff7a:b79]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#西雅图3
-vless://${userID}@[2606:4700:2a:db89:3545:d747:280e:a4ed]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#西雅图4
-vless://${userID}@[2606:4700:a9:268f:2b1b:d739:d86d:873b]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#圣何塞1
-vless://${userID}@[2606:4700:a9:2a14:e6d:a90c:e54c:bdda]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#圣何塞2
-vless://${userID}@[2606:4700:4406:bdd2:3e80:4eba:7fc7:c155]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#洛杉矶1
-vless://${userID}@[2606:4700:8:bc63:62d6:2a10:689c:a751]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#洛杉矶2
-vless://${userID}@[2606:4700:440a:50cb:6d57:59c5:fbb0:dcfa]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#洛杉矶3
-vless://${userID}@[2606:4700:85d1:8fe4:9257:e3c8:b89d:e6d2]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#法兰克福1
-vless://${userID}@[2606:4700:8d7a:5772:aa01:129e:cccb:1c24]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#法兰克福2
-vless://${userID}@[2606:4700:8d96:1cdc:b51f:4a0e:17d6:9f3b]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#法兰克福3
-vless://${userID}@[2606:4700:9c6b:28ce:fbd4:970d:7533:9342]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#香港1
-vless://${userID}@[2606:4700:8399:cdd3:122b:4f66:5071:9bf6]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#香港2
-vless://${userID}@[2606:4700:9a62:76bb:ab4a:6521:2713:d528]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#香港3
-vless://${userID}@[2606:4700:83b9:2ccd:f58e:1909:b6a7:d74f]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#印度1
-vless://${userID}@[2606:4700:83b4:2e2f:b4b0:a1b6:b715:5c1d]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#印度2
-vless://${userID}@[2606:4700:83b5:f69:df86:a4f1:9cdb:cd77]:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#印度3
           `;
           return new Response(vlessConfig, {
             status: 200,
