@@ -29,8 +29,8 @@ export default {
 vless://${userID}@104.17.33.105:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#香港
 vless://${userID}@162.159.130.85:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#东京
 vless://${userID}@162.159.130.11:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#东京
-vless://${userID}@172.67.69.45:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#西雅图
-vless://${userID}@104.22.58.100:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#西雅图
+vless://${userID}@172.67.173.45:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#西雅图
+vless://${userID}@104.26.11.103:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#西雅图
 vless://${userID}@104.25.41.10:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#洛杉矶
 vless://${userID}@104.19.241.151:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#圣何塞
 vless://${userID}@172.67.3.164:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#法兰克福
