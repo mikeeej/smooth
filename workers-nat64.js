@@ -25,18 +25,16 @@ export default {
         // 处理 UUID 路径请求，返回配置信息
         if (url.pathname === `/${userID}`) {
           const host = request.headers.get('Host');
-          const vlessConfig = `vless://${userID}@162.159.152.115:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#东京
+          const vlessConfig = `vless://${userID}@162.159.130.87:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#香港
+vless://${userID}@104.17.33.105:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#香港
 vless://${userID}@162.159.130.85:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#东京
+vless://${userID}@162.159.130.11:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#东京
 vless://${userID}@172.67.69.45:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#西雅图
 vless://${userID}@104.22.58.100:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#西雅图
 vless://${userID}@104.25.41.10:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#洛杉矶
-vless://${userID}@198.41.208.132:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#圣何塞
+vless://${userID}@104.19.241.151:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#圣何塞
 vless://${userID}@172.67.3.164:8443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#法兰克福
 vless://${userID}@usa.visa.com:443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#usa.visa.com
-vless://${userID}@lin.cloudflare.182682.xyz:443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#cloudflare.182682.xyz
-vless://${userID}@bestcf.030101.xyz:443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#bestcf.030101.xyz
-vless://${userID}@xn--b6gac.eu.org:443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#xn--b6gac.eu.org
-vless://${userID}@freeyx.cloudflare88.eu.org:443?encryption=none&security=tls&sni=${host}&type=ws&host=${host}&path=%2F#freeyx.cloudflare88.eu.org
           `;
           return new Response(vlessConfig, {
             status: 200,
